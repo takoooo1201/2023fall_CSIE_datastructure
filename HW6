@@ -1,0 +1,23 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(){
+	int n;
+	cin>>n;
+	string a;
+	int b;
+	map<int,string> mp;
+	while(n--){
+		cin>>a>>b;
+		mp[b]=a;
+	}
+	int cnt=0;
+	cout<<"First three things to do:"<<endl;
+	for(auto it = mp.rbegin(); it != mp.rend(); it++){
+		if(cnt==3)
+			break;
+		cout<<(*it).second<<endl;
+		cnt++;
+	}
+	return 0;
+}
