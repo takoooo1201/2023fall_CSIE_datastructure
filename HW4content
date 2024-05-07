@@ -1,0 +1,22 @@
+Given a binary tree represented as a list of integers (where -1 indicates a null child), write a program to:
+
+Build the binary tree using the given list.
+Implement and print the preorder traversal of the tree.
+Implement and print the inorder traversal of the tree.
+Implement and print the postorder traversal of the tree.
+
+Example Input
+11
+8 2 3 1 9 6 -1 -1 7 -1 5
+Example Output
+8 2 1 9 7 3 6 5
+1 2 7 9 8 6 5 3
+1 7 9 2 5 6 3 8
+
+P.S.
+1.The list is a level-order sequence(typically used for serialization and deserialization of binary trees because it allows the structure of the tree to be efficiently reconstructed without ambiguity)
+2.Values needed to be printed on a single line, separated by spaces, without leading or trailing spaces. 
+
+
+
+
