@@ -1,0 +1,116 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+struct TreeNode {
+    int val;
+    TreeNode* left;
+    TreeNode* right;
+    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+};
+bool ptSpace=0;
+TreeNode* buildTree(const vector<int>& nodes) {
+    if (nodes.empty()) {
+        return nullptr;
+    }
+
+    // Create the root node
+    TreeNode* root = new TreeNode(nodes[0]);
+
+    // Use a queue to keep track of nodes at each level
+    queue<TreeNode*> nodeQueue;
+    nodeQueue.push(root);
+
+    // Start from index 1 since the root is already created
+    for (int i = 1; i < nodes.size(); i += 2) {
+        // Get the front node from the queue
+        TreeNode* currentNode = nodeQueue.front();
+        nodeQueue.pop();
+
+        // Create a left child if the value is not -1
+        if (nodes[i] != -1) {
+            currentNode->left = new TreeNode(nodes[i]);
+            nodeQueue.push(currentNode->left);
+        }
+
+        // Create a right child if the value is not -1 and there are more elements in the array
+        if (i + 1 < nodes.size() && nodes[i + 1] != -1) {
+            currentNode->right = new TreeNode(nodes[i + 1]);
+            nodeQueue.push(currentNode->right);
+        }
+    }
+
+    return root;
+}
+
+void inorderTraversal(TreeNode* root) {
+    if (root == nullptr) {
+        return;
+    }
+
+    inorderTraversal(root->left);
+    if(root->val!=0){
+    	if(ptSpace)
+    		cout<<" ";
+    	cout << root->val;
+    	ptSpace=1;
+	}	
+    inorderTraversal(root->right);
+}
+
+void preorderTraversal(TreeNode* root) {
+    if (root == nullptr) {
+        return;
+    }
+    if(root->val!=0){
+    	if(ptSpace)
+    		cout<<" ";
+    	cout << root->val;
+    	ptSpace=1;
+	}	
+    preorderTraversal(root->left);
+    preorderTraversal(root->right);
+}
+
+void postorderTraversal(TreeNode* root) {
+    if (root == nullptr) {
+        return;
+    }
+
+    postorderTraversal(root->left);
+    postorderTraversal(root->right);
+    if(root->val!=0){
+    	if(ptSpace)
+    		cout<<" ";
+    	cout << root->val;
+    	ptSpace=1;
+	}	
+}
+
+int main() {
+    int n;
+    cin>>n;
+    int val;
+    vector<int> values;
+    for(int i=0;i<n;i++){
+    	cin>>val;
+    	values.push_back(val);
+	}
+    //vector<int> values = {8 ,2 ,3 ,1 ,9 ,6 ,0 ,0 ,7 ,0 ,5 ,0};
+    TreeNode* root = buildTree(values);
+
+	//cout << "Preorder Traversal: ";
+    preorderTraversal(root);
+    cout << endl;
+    
+    //cout << "Inorder Traversal: ";
+    ptSpace=0;
+    inorderTraversal(root);
+    cout << endl;
+
+    //cout << "Postorder Traversal: ";
+    ptSpace=0;
+    postorderTraversal(root);
+    cout << endl;
+
+    return 0;
+}
