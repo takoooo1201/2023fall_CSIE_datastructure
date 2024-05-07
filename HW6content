@@ -1,0 +1,37 @@
+The given code appears to solve a problem where tasks need to be prioritized by their associated importance levels. The program accepts a list of tasks and their priority levels and outputs the three most important tasks. Here's how the code works and what the question might look like:
+
+Explanation of the Code:
+The code reads an integer n, which represents the number of tasks.
+For each task, the user inputs a string a (task description) and an integer b (priority level).
+The tasks and their priority levels are stored in a map (mp), where the key is the priority (b) and the value is the task description (a).
+By using a map with priority values as keys, tasks are sorted automatically by priority.
+After reading all tasks, the program outputs the top three tasks with the highest priorities.
+The map is iterated in reverse order using rbegin() to rend() to access the highest-priority tasks first.
+Only the top three tasks are printed, or fewer if fewer tasks are available.
+Question:
+Given a list of tasks and their associated priority levels, write a program that:
+
+Accepts an integer n representing the total number of tasks.
+Reads n pairs of inputs, each consisting of a string (task description) and an integer (priority level).
+Outputs the three tasks with the highest priority levels.
+
+Input
+An integer n representing the number of tasks.
+n pairs, each containing a string (task description) and an integer (priority level).
+Output
+The three tasks with the highest priorities, one per line, in descending order of priority.
+
+Example
+Input:
+5
+Complete Homework 10
+Workout 8
+Meet Friend 5
+Buy Groceries 7
+Finish Project 9
+
+Output:
+First three things to do:
+Complete Homework
+Finish Project
+Workout
