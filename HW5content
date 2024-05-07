@@ -1,0 +1,35 @@
+The provided code constructs a binary tree from a list of integer values representing a level-order traversal, where -1 indicates a node should not have a child in that position. It includes functionalities to find a node, 
+reverse the left and right subtrees of a specified node, and to print both inorder and level-order traversals of the tree. Additionally, it continues to read inputs (node values) and applies the reverse operation until 0 
+is inputted, indicating termination of the process.
+
+Question:
+Given a list of integers representing the level-order traversal of a binary tree (with -1 indicating the absence of a node), write a program that does the following:
+
+Build the binary tree using the provided list.
+Read a sequence of integers from the input until a 0 is encountered.
+For each integer read (other than 0), find the corresponding node in the tree and reverse the subtrees rooted at that node.
+After processing all input integers, print the level-order traversal of the modified tree.
+
+Example Input
+1 2 3 4 5 6 7 8 9 10 11
+2
+0
+
+         1
+       /   \
+      2     3
+     / \   / \
+    4   5 6   7
+   / \ / \ 
+  8  9 10 11
+
+Example Output
+1 2 3 5 4 6 7 11 10 9 8
+
+         1
+       /   \
+      2     3
+     / \   / \
+    5   4 6   7
+   / \ / \ 
+ 11 10 9  8
